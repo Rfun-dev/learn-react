@@ -9,13 +9,17 @@ const Todo = props => {
       setIsModalOpen(true)
   }
 
+  const onCancelHandler = () => {
+    setIsModalOpen(false)
+  }
+
   return (
-    <div className="card">
+    <div className="card">f
       <p>{props.text}</p>
       <div className="action">
         <button className="btn" onClick={handleClickButton}>Delete</button>
-        {isModalOpen && <Modal/>}
-        {isModalOpen && <Backdrop/>}
+        {isModalOpen && <Modal onCancel={onCancelHandler} onConfirm={onCancelHandler}/>}
+        {isModalOpen && <Backdrop onCancel={onCancelHandler}/>}
       </div>
     </div>
   );
