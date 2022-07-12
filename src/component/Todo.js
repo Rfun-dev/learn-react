@@ -1,7 +1,6 @@
 const Todo = props => {
   const handleClickButton = () => {
-      console.log('clicked !');
-      console.log(props.text);
+      
   }
 
   return (
