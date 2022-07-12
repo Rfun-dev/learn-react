@@ -1,0 +1,31 @@
+.header{
+    width: 100%;
+    height: 60PX;
+    background-color: #800040;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+.header h1{
+    color: white;
+}
+
+.header ul{
+    display: flex;
+    list-style: none;
+}
+
+.header ul li{
+    margin: 0 10px;
+}
+
+.header ul li a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.header ul li a:hover{
+    color: white;
+}

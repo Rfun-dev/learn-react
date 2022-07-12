@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import Classes from "./MainNavigation.module.css";
 
-const MainHeaderLayout = () => {
+const MainNavigation = () => {
   return (
-    <header>
+    <header className={Classes.header}>
+      <h1>React Meetups</h1>
       <ul>
         <li>
           <Link to="/">All Meet Up</Link>
@@ -18,4 +20,4 @@ const MainHeaderLayout = () => {
   );
 };
 
-export default MainHeaderLayout;
+export default MainNavigation;

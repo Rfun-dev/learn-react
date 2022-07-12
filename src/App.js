@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import MainHeaderLayout from "./component/layout/MainHeader";
+import MainNavigation from "./component/layout/MainNavigation";
 import AllMeatUpsPage from "./page/AllMeatUps";
 import FavoritesPage from "./page/Favorites";
 import NewMeetUpsPage from "./page/NewMeatUp";
@@ -7,7 +7,7 @@ import NewMeetUpsPage from "./page/NewMeatUp";
 function App() {
   return (
     <>
-      <MainHeaderLayout />
+      <MainNavigation />
       <Routes>
         <Route path="/" element={<AllMeatUpsPage />} />
         <Route path="/new-meetups" element={<NewMeetUpsPage />} />
