@@ -1,0 +1,43 @@
+h1{
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+.item{
+    text-align: center;
+    list-style: none;
+}
+
+.item .image img{
+    height: 350px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.item .content{
+    margin: 10px;
+}
+
+.item .content h2{
+    font-size: 28px;
+}
+
+.item .content address{
+    margin-bottom: 4px;
+}
+
+.item .button button{
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #800040;
+    border: 2px solid #800040;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+.item .button button:hover{
+    background-color: #800040;
+    color: white;
+}
