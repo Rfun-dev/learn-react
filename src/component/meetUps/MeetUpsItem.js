@@ -6,6 +6,7 @@ const MeetUpsItem = ({ title, image, address, description }) => {
     <li className={Classes.item}>
       <Card>
         <div className={Classes.image}>
+          {console.log(image)}
           <img src={image} alt={title} />
         </div>
         <div className={Classes.content}>
