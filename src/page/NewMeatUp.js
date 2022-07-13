@@ -1,6 +1,9 @@
 import Form from "../component/form/Form";
+import {useNavigate} from 'react-router-dom';
 
 const NewMeetUpsPage = () => {
+  const navigate = useNavigate();  
+
   const onPostHandler = (value) => {
     fetch("https://react-course-89d20-default-rtdb.asia-southeast1.firebasedatabase.app/meetups.json", {
         body : value,
@@ -9,7 +12,9 @@ const NewMeetUpsPage = () => {
         headers : {
             'Content-Type' : 'application/json'
         }
-    })
+    }).then(
+        navigate("/")
+    )
   };
 
   return (
