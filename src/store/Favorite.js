@@ -1,39 +1,43 @@
-import { createContext ,useState} from "react";
+import { createContext, useState } from "react";
 
-const FavoriteContext = createContext
-(
-    {
-        favorite : [],
-        totalFavorite : 0,
-    }
-);
+const FavoriteContext = createContext({
+  favorite: [],
+  totalFavorite: 0,
+  addFavorite: (meetups) => {},
+  removeFavorite: (meetupId) => {},
+  itemIsFavorite: (meetupId) => {},
+});
 
-const FavoriteContextProvider = (props) => {
-    const [userFavorite,setUserFavorite] = useState();
-    const addFavoriteHandler = (meetups) => {
-        setUserFavorite = (prev) => (
-            prev.concat(meetups)
-        );
-    };
+export const FavoriteContextProvider = (props) => {
+  const [userFavorite, setUserFavorite] = useState([]);
+  const addFavoriteHandler = (meetups) => {
+    setUserFavorite((prev) => {
+        return prev.concat(meetups)
+    })
+  };
 
-    const removeFavoriteHandler = (meetupId) => {
-        FavoriteContext.filter((meetup) => (
-            meetup.id !== meetupId 
-        ));
-    };
+  const removeFavoriteHandler = (meetupId) => {
+    setUserFavorite((prev) => {
+        return prev.filter(item => item.id !== meetupId)
+    })
+  };
 
-    const itemIsFavoriteHandler = (meetupId) => {
-        FavoriteContext.Consumer(meetup => meetup.id === meetupId)
-    }
+  const itemIsFavoriteHandler = (meetupId) =>
+    userFavorite.some((meetup) => meetup.id === meetupId);
 
-    const context = {
-        favorite : userFavorite,
-        totalFavorite : userFavorite.length
-    }
+  const context = {
+    favorite: userFavorite,
+    totalFavorite: userFavorite.length,
+    addFavorite: addFavoriteHandler,
+    removeFavorite: removeFavoriteHandler,
+    itemIsFavorite: itemIsFavoriteHandler,
+  };
 
-    return(
-        <FavoriteContext.Provider value={context}>
-            {props.children}
-        </FavoriteContext.Provider>
-    )
-}
+  return (
+    <FavoriteContext.Provider value={context}>
+      {props.children}
+    </FavoriteContext.Provider>
+  );
+};
+
+export default FavoriteContext;
